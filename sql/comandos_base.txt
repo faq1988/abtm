@@ -1,0 +1,45 @@
+create table torneo (
+id_torneo int unsigned auto_increment,
+modalidad tinyint(1) unsigned default 1 not null,
+cant_jugadores smallint unsigned default 0 not null,
+login varchar(45),
+st tinyint(1) unsigned default 0 not null ,
+ts timestamp,
+primary key (id_torneo))
+engine= InnoDB,default charset=utf8 ;
+
+create table etapa(
+id_torneo int unsigned   not null,
+id_etapa int unsigned  not null,
+tipo tinyint(1) unsigned default 1 not null,
+cant_jugadores smallint unsigned default 0 not null,
+login varchar(45),
+st tinyint(1) unsigned default 0 not null ,
+ts timestamp,
+primary key (id_torneo,id_etapa))
+engine= InnoDB,default charset=utf8 ;
+
+create table partido(
+id_etapa int unsigned not null,
+id_partido int unsigned  not null,
+jugador1 varchar(100),
+jugador2 varchar(100),
+arbitro varchar(100),
+resultado smallint not null,
+login varchar(45),
+st tinyint(1) unsigned default 0 not null ,
+ts timestamp,
+primary key (id_etapa,id_partido))
+engine= InnoDB,default charset=utf8 ;
+
+create table partido_set(
+id_partido int not null,
+nro_set tinyint(1) unsigned not null,
+puntos_j1 smallint unsigned not null,
+puntos_j2 smallint unsigned not null,
+login varchar(45),
+st tinyint(1) unsigned default 0 not null ,
+ts timestamp,
+primary key (id_partido,nro_set))
+engine= InnoDB,default charset=utf8 ;
+
