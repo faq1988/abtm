@@ -23,8 +23,12 @@ class Main extends CI_Controller {
 		$this->load->view('welcome_message');
 	}
 
-	public function agregar()
-	{
-		echo "la puta que te pario";
+	public function get_data_torneo()
+	{ 
+		
+		$this -> load -> model("Model");
+		var_dump($this -> Model -> get_torneo());exit;
+		//$this->load->view('welcome_message');
 	}
 }
+
